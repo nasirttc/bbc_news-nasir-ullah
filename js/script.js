@@ -1,0 +1,59 @@
+function checkUserName(){
+	var user = $('#userName').val();
+	if(user=='nasir'){
+		$('#userError').text('');
+		return true;
+	
+	}else{
+		$('#userError').text('User name dosn\'t match.');		
+		return false;
+	}	
+}
+$('#userName').blur(function(){
+	checkUserName()
+});
+
+$('#userName').keydown(function(){
+	checkUserName()
+});
+
+
+//for password
+
+
+function passwordCheck(){
+	var password = $('#psd').val();
+	if(password==111 ){
+		$('#psdError').text('');
+		return true;
+	}else{
+		$('#psdError').text('Password dosn\'t match;.');
+		return false;
+	}
+}
+
+$('#psd').blur(function(){
+	passwordCheck();
+});
+
+
+
+
+
+//for submit
+
+$('#loginForm').submit(function(){
+	user_error = false;
+	password_error = false;
+
+
+	user_error = checkUserName();
+	password_error = passwordCheck();
+
+	if(user_error && password_error){
+		return true;
+	}else{
+		return false;
+	}
+
+})
